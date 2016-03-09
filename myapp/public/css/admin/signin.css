@@ -1,0 +1,71 @@
+body {
+    /*padding-top: 40px;*/
+    /*padding-bottom: 40px;*/
+    background-color: #eee;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+#fromlogin{
+    text-align:center;
+    margin-top:50px;
+    font-size:29px;
+    animation:fromlogin 3s ;
+    -webkit-animation:fromlogin 3s ;
+    -moz-animation:fromlogin 3s ;
+    -ms-animation:fromlogin 3s ;
+    -o-animation:fromlogin 3s ;
+}
+@keyframes fromlogin {
+    from {transform: scale(0);}
+    to  {transform: scale(1);}
+}
+@-moz-keyframes fromlogin {
+    from {-moz-transform: scale(0);}
+    to  {-moz-transform: scale(1);}
+}
+@-webkit-keyframes fromlogin {
+    from {-webkit-transform: scale(0);}
+    to  {-webkit-transform: scale(1);}
+}
+@-ms-keyframes fromlogin {
+    from {-ms-transform: scale(0);}
+    to  {-ms-transform: scale(1);}
+}
+@-o-keyframes fromlogin {
+    from {-o-transform: scale(0);}
+    to  {-o-transform: scale(1);}
+}
