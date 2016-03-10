@@ -72,7 +72,7 @@ body {
 .navbar-backend .nav-pills > li > a {
     padding: 15px 30px;
     color: #ffffff;
-    font-size: 19px;
+    font-size: 18px;
 }
 .navbar-backend .nav-pills > li > a > .badge {
     color: #000077;
@@ -492,3 +492,60 @@ img.delete {
                         transparent);
 }
 /* end scroll bar style */
+
+
+
+
+.btn-green ,
+.pager li > a {
+    background-color: #a3ffb5;
+}
+.pager .active {
+    background-color: #049110;
+    color: #FFFBD3;
+}
+.pager li > a:hover {
+    border: 1px solid #00b81e;
+    color: #000;
+}
+
+.panel-body {
+    padding-bottom: 0;
+}
+.table-bordered {
+    margin-bottom: 0;
+}
+.table-bordered thead ,
+.table-bordered tfoot {
+    background-color: rgba(0, 186, 37, 0.9);
+    font-size: 18cm;
+}
+.table-bordered>thead>tr>th,
+.table-bordered>thead>tr>td,
+.table-bordered>tfoot>tr>th,
+.table-bordered>tfoot>tr>td,
+.table-bordered>tbody>tr>th,
+.table-bordered>tbody>tr>td,
+.table>thead:first-child>tr:first-child>th{
+    border: 1px solid #222;
+}
+.table-bordered tbody tr:nth-child(even) {
+    background-color: #c7ffd6;
+}
+.table-bordered tbody tr:nth-child(old) {
+    background-color: #8ab2ce;
+}
+.table-bordered > tbody > tr > td:last-child {
+    width: 85px;
+}
+.table-bordered > tbody > tr > td:last-child > a {
+    text-decoration: none;
+}
+
+
+.show-data-table .row > .col-md-6 > a{
+    float: left;
+}
+.show-data-table .row > .col-md-6 > a{
+    float: left;
+}

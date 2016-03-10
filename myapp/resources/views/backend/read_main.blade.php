@@ -2,16 +2,98 @@
 
 @section('content')
     <div class="container">
-        <div class="panel panel-primary">
+        <div class="panel panel-primary show-data-table">
             <div class="panel-heading">Panel Heading</div>
             <div class="panel-body">
-                Panel Content
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="#" class="btn btn-green">add news</a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group col-md-8 col-md-offset-2">
+                            <input type="text" class="form-control" id="search" placeholder="Search">
+                        </div>
+                        <input type="button" class="btn btn-green col-md-2" value="Search"/>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <th colspan="5">ไม่พบผลลัพธ์</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>
+                                <a href="#">
+                                    <img src="{{ asset('img/btn-edit-32px.png') }}" alt="edit">
+                                </a>
+                                <a href="#">
+                                    <img src="{{ asset('img/btn-delete-32px.png') }}" alt="delete">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        </tbody>
+
+                        <tfoot>
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
 
 
 
                 <ul class="pager">
                     <li class="previous"><a href="#">Previous</a></li>
                     <li><a href="#">1</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#" class="active">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">30</a></li>
                     <li class="next"><a href="#">Next</a></li>
                 </ul>
             </div>
