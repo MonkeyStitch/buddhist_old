@@ -52,16 +52,19 @@
                             </ul>
                         </li>
 
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">ศาสนพิธี
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ url('') }}">กุศลพิธี</a></li>
-                                <li><a href="{{ url('') }}">บุญพิธี</a></li>
-                                <li><a href="{{ url('') }}">ทานพิธี</a></li>
-                                <li><a href="{{ url('') }}">ปกิณกะ</a></li>
-                            </ul>
+                        <li role="presentation">
+                            <a href='{{ url('admin/news') }}'>ศาสนพิธี</a>
                         </li>
+                        {{--<li class="dropdown">--}}
+                            {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#">ศาสนพิธี--}}
+                                {{--<span class="caret"></span></a>--}}
+                            {{--<ul class="dropdown-menu">--}}
+                                {{--<li><a href="{{ url('') }}">กุศลพิธี</a></li>--}}
+                                {{--<li><a href="{{ url('') }}">บุญพิธี</a></li>--}}
+                                {{--<li><a href="{{ url('') }}">ทานพิธี</a></li>--}}
+                                {{--<li><a href="{{ url('') }}">ปกิณกะ</a></li>--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
 
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">หลักธรรมคำสอน

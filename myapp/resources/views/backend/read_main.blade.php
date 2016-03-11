@@ -26,7 +26,7 @@
                             <th>2</th>
                             <th>3</th>
                             <th>4</th>
-                            <th>5</th>
+                            <th><i class="glyphicon glyphicon-cog"></i> </th>
                         </tr>
                         </thead>
 
@@ -40,11 +40,11 @@
                             <td>3</td>
                             <td>4</td>
                             <td>
-                                <a href="#">
-                                    <img src="{{ asset('img/btn-edit-32px.png') }}" alt="edit">
+                                <a href="#" class="btn btn-default">
+                                    <i class="glyphicon glyphicon-pencil"></i>
                                 </a>
-                                <a href="#">
-                                    <img src="{{ asset('img/btn-delete-32px.png') }}" alt="delete">
+                                <a href="#" class="btn btn-danger">
+                                    <i class="glyphicon glyphicon-trash"></i>
                                 </a>
                             </td>
                         </tr>
@@ -53,21 +53,42 @@
                             <td>2</td>
                             <td>3</td>
                             <td>4</td>
-                            <td>5</td>
+                            <td>
+                                <a href="#" class="btn btn-default">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </a>
+                                <a href="#" class="btn btn-danger">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </td>
                         </tr>
                         <tr>
                             <td>1</td>
                             <td>2</td>
                             <td>3</td>
                             <td>4</td>
-                            <td>5</td>
+                            <td>
+                                <a href="#" class="btn btn-default">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </a>
+                                <a href="#" class="btn btn-danger">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </td>
                         </tr>
                         <tr>
                             <td>1</td>
                             <td>2</td>
                             <td>3</td>
                             <td>4</td>
-                            <td>5</td>
+                            <td>
+                                <a href="#" class="btn btn-default">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </a>
+                                <a href="#" class="btn btn-danger">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </td>
                         </tr>
                         </tbody>
 
