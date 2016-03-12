@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Model\News;
+use App\Model\News\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller {
@@ -60,7 +60,7 @@ class NewsController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		return $id;
 	}
 
 	/**
@@ -71,7 +71,7 @@ class NewsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		return $id . 'edit';
 	}
 
 	/**
@@ -93,7 +93,7 @@ class NewsController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		return $id . ' destroy';
 	}
 
 }

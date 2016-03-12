@@ -168,6 +168,7 @@ img.delete {
     margin: 3px;
 }
 
+
 .btn-green ,
 .pager li > a{
     background-color: #a3ffb5;
@@ -219,7 +220,11 @@ img.delete {
 }
 .table-bordered > tbody > tr > td:last-child {
     text-align: center;
-    width: 105px;
+    /*width: 105px;  !* 2 *!*/
+    width: 145px;  /* 3 */
+}
+.table-bordered > tbody > tr > td:last-child form{
+    display: inline-block;
 }
 .table-bordered > tbody > tr > td:last-child > a {
     text-decoration: none;

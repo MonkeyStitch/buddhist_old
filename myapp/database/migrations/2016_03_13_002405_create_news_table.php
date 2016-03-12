@@ -15,11 +15,10 @@ class CreateNewsTable extends Migration {
 		Schema::create('news', function(Blueprint $table)
 		{
 			$table->increments('id');
-
 			$table->integer('category_id')->unsigned();
 			$table->foreign('category_id')->references('id')->on('category_news');
 			$table->string('title', 1023);
-			$table->text('details');
+			$table->longText('details');
 			$table->string('picture', 511);
 
 			$table->string('by', 1023);

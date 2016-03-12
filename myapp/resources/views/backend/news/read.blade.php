@@ -49,17 +49,26 @@
                             @foreach($news as $value)
                                 <tr>
                                     <td>{{ $value->id }}</td>
-                                    <td>{{ $value->category_id }}</td>
+                                    <td>{{ $value->category->category }}</td>
                                     <td>{{ $value->picture }}</td>
                                     <td>{{ $value->title }}</td>
                                     <td>{{ $value->by }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-default">
+                                        <a href="{{ url('admin/news/' . $value->id) }}" class="btn btn-default">
+                                            <i class="glyphicon glyphicon-eye-open"></i>
+                                        </a>
+                                        <a href="{{ url('admin/news/' . $value->id . '/edit') }}" class="btn btn-info">
                                             <i class="glyphicon glyphicon-pencil"></i>
                                         </a>
-                                        <a href="#" class="btn btn-danger">
-                                            <i class="glyphicon glyphicon-trash"></i>
-                                        </a>
+
+                                        <form action="{!! url('admin/news/' . $value->id) !!}" method="POST" accept-charset="utf-8">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <button class="btn btn-danger" type="submit">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </button>
+                                        </form>
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -84,79 +93,79 @@
 
                 <ul class="pager">
                     <li class="previous {{ $page == 1 ? 'disabled': '' }}">
-                        <a {{ $page == 1 ? '': 'href='.url('admin/news/'.($page-1)) }}>Previous</a>
+                        <a {{ $page == 1 ? '': 'href='.url('admin/news/page/'.($page-1)) }}>Previous</a>
                     </li>
 
                     @if($records <= 50)
                         @if($records > 0)
-                            <li><a href="{{ url('admin/news/1') }}"
+                            <li><a href="{{ url('admin/news/page/1') }}"
                                         {{ $page == 1 ? 'class=active' : '' }}>1</a></li>
                         @endif
                         @if($records > 10)
-                            <li><a href="{{ url('admin/news/2') }}"
+                            <li><a href="{{ url('admin/news/page/2') }}"
                                         {{ $page == 2 ? 'class=active' : '' }}>2</a></li>
                         @endif
                         @if($records > 20)
-                            <li><a href="{{ url('admin/news/3') }}"
+                            <li><a href="{{ url('admin/news/page/3') }}"
                                         {{ $page == 3 ? 'class=active' : '' }}>3</a></li>
                         @endif
                         @if($records > 30)
-                            <li><a href="{{ url('admin/news/4') }}"
+                            <li><a href="{{ url('admin/news/page/4') }}"
                                         {{ $page == 4 ? 'class=active' : '' }}>4</a></li>
                         @endif
                         @if($records > 40)
-                            <li><a href="{{ url('admin/news/5') }}"
+                            <li><a href="{{ url('admin/news/page/5') }}"
                                         {{ $page == 5 ? 'class=active' : '' }}>5</a></li>
                         @endif
                     @else
                         @if($page <= 3)
-                            <li><a href="{{ url('admin/news/1') }}"
+                            <li><a href="{{ url('admin/news/page/1') }}"
                                         {{ $page == 1 ? 'class=active' : '' }}>1</a></li>
-                            <li><a href="{{ url('admin/news/2') }}"
+                            <li><a href="{{ url('admin/news/page/2') }}"
                                         {{ $page == 2 ? 'class=active' : '' }}>2</a></li>
-                            <li><a href="{{ url('admin/news/3') }}"
+                            <li><a href="{{ url('admin/news/page/3') }}"
                                         {{ $page == 3 ? 'class=active' : '' }}>3</a></li>
-                            <li><a href="{{ url('admin/news/4') }}">4</a></li>
+                            <li><a href="{{ url('admin/news/page/4') }}">4</a></li>
                             <li class="disabled"><a>---</a></li>
-                            <li><a href="{{ url('admin/news/'.ceil($records/10)) }}">{{ ceil($records/10) }}</a></li>
+                            <li><a href="{{ url('admin/news/page/'.ceil($records/10)) }}">{{ ceil($records/10) }}</a></li>
 
                         @elseif($page > ceil($records/10)-3  && $page <= ceil($records/10))
-                            <li><a href="{{ url('admin/news/1') }}">1</a></li>
+                            <li><a href="{{ url('admin/news/page/1') }}">1</a></li>
                             <li  class="disabled"><a>---</a></li>
-                            <li><a href="{{ url('admin/news/'.(ceil($records/10)-3)) }}">
+                            <li><a href="{{ url('admin/news/page/'.(ceil($records/10)-3)) }}">
                                     {{ ceil($records/10) - 3 }}
                                 </a>
                             </li>
-                            <li><a href="{{ url('admin/news/'.(ceil($records/10)-2)) }}"
+                            <li><a href="{{ url('admin/news/page/'.(ceil($records/10)-2)) }}"
                                         {{ $page == (ceil($records/10) - 2) ? 'class=active' : '' }}>
                                     {{ ceil($records/10) - 2 }}
                                 </a>
                             </li>
-                            <li><a href="{{ url('admin/news/'.(ceil($records/10)-1)) }}"
+                            <li><a href="{{ url('admin/news/page/'.(ceil($records/10)-1)) }}"
                                         {{ $page == (ceil($records/10) - 1) ? 'class=active' : '' }}>
                                     {{ ceil($records/10) - 1 }}
                                 </a>
                             </li>
-                            <li><a href="{{ url('admin/news/'.(ceil($records/10))) }}"
+                            <li><a href="{{ url('admin/news/page/'.(ceil($records/10))) }}"
                                         {{ $page == ceil($records/10) ? 'class=active' : '' }}>
                                     {{ ceil($records/10) }}
                                 </a>
                             </li>
 
                         @else
-                            <li><a href="{{ url('admin/news/1') }}">1</a></li>
+                            <li><a href="{{ url('admin/news/page/1') }}">1</a></li>
                             <li class="disabled"><a>---</a></li>
-                            <li><a href="{{ url('admin/news/'.($page - 1)) }}">{{ $page - 1 }}</a></li>
-                            <li><a href="{{ url('admin/news/'.($page)) }}" class="active">{{ $page }}</a></li>
-                            <li><a href="{{ url('admin/news/'.($page + 1)) }}">{{ $page + 1 }}</a></li>
+                            <li><a href="{{ url('admin/news/page/'.($page - 1)) }}">{{ $page - 1 }}</a></li>
+                            <li><a href="{{ url('admin/news/page/'.($page)) }}" class="active">{{ $page }}</a></li>
+                            <li><a href="{{ url('admin/news/page/'.($page + 1)) }}">{{ $page + 1 }}</a></li>
                             <li class="disabled"><a>---</a></li>
-                            <li><a href="{{ url('admin/news/'.(ceil($records/10))) }}">{{ ceil($records/10) }}</a></li>
+                            <li><a href="{{ url('admin/news/page/'.(ceil($records/10))) }}">{{ ceil($records/10) }}</a></li>
                         @endif
 
                     @endif
 
                     <li class="next {{ $page == ceil($records/10) ? 'disabled': '' }}">
-                        <a {{ $page == ceil($records/10) ? '': 'href='.url('admin/news/'.($page+1)) }}>Next</a>
+                        <a {{ $page == ceil($records/10) ? '': 'href='.url('admin/news/page/'.($page+1)) }}>Next</a>
                     </li>
                 </ul>
             </div>

@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Model\News;
+use App\Model\News\News;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller {
@@ -26,6 +26,12 @@ class AdminController extends Controller {
 		$records = News::all()->count();
 		$news 	 = [];
 
+		if((!is_numeric($page)) || ($page <= 0)){
+			return redirect('admin/news/1');
+		} else if($page > ceil($records/10)) {
+			return redirect('admin/news/' . ceil($records/10));
+		}
+
 		foreach(News::all() as $item => $value){
 			if($item >= (($page-1)*10) && $item < (($page-1)*10)+10){
 				$news[] = $value;
@@ -33,7 +39,6 @@ class AdminController extends Controller {
 		}
 
 		return view('backend.news.read', compact('heading', 'records', 'news', 'page'));
-//		return $news;
 	}
 
 

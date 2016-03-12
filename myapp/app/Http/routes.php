@@ -36,7 +36,7 @@ Route::group([
 
 	Route::get('/', 'AdminController@index');
 	Route::get('/home', 'AdminController@home');
-	Route::get('news/{page}', 'AdminController@news');
+	Route::get('news/page/{page}', 'AdminController@news');
 
 	Route::resource('/news', 'NewsController');
 //	Route::get('news', function(){
