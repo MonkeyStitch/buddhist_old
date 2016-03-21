@@ -52,27 +52,26 @@ class NewsController extends Controller {
 	 */
 	public function store(NewsRequest $newsRequest)
 	{
-//		$category = CategoryNews::find($newsRequest->get('category'));
-
 		// check data input :: NewsRequest class
-		$input = $newsRequest->all();
-//		News::create($input);
+		$input = new News($newsRequest->all());
+//		$input['category_id'] = $newsRequest['category'];
 
 		if($newsRequest->hasFile('picture')){
-			$public_path = 'images/news';
+			$public_path = '/images/news';
 
 			$pic_filename 	= $newsRequest->file('picture')->getClientOriginalName();
 			$pic_name 		= date('Ymd-His-') . $pic_filename;
-			$destination 	= base_path() . $public_path;
+			$destination 	= base_path() . '/public' . $public_path;
 
 			$newsRequest->file('picture')->move($destination, $pic_name);
 
 			// add record picture
+			$input['picture'] = $public_path . '/' . $pic_name;
+			$input->save();
 
-			News::create($input);
 		}
 
-		dd($newsRequest->all());
+//		dd($newsRequest->all());
 		return redirect('admin/news');
 	}
 

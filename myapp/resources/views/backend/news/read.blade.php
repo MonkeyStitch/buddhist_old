@@ -59,11 +59,17 @@
                             @foreach($news as $value)
                                 <tr>
                                     <td>{{ $value->id }}</td>
+                                    <td width="120px">
+                                        @if($value->picture === '' || $value->picture === 'picture')
+                                            <img src="{{ asset('img/no_image.jpg') }}" alt="No Image" class="img-responsive img-thumbnail center-block">
+                                        @else
+                                            <img src="{{ asset($value->picture) }}" alt="picture news" class="img-responsive img-thumbnail center-block">
+                                        @endif
+                                    </td>
                                     <td>{{ $value->category->category }}</td>
-                                    <td>{{ $value->picture }}</td>
                                     <td>{{ $value->title }}</td>
-                                    <td>{{ $value->by }}</td>
-                                    <td>
+                                    <td>{{ $value->reference }}</td>
+                                    <td style="vertical-align: middle;">
                                         <a href="{{ url('admin/news/' . $value->id) }}" class="btn btn-default">
                                             <i class="glyphicon glyphicon-eye-open"></i>
                                         </a>

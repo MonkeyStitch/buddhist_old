@@ -8,8 +8,8 @@
         </div>
 
         <div class="form-group">
-            <label for="category">ประเภทข่าว :</label>
-            <select id="category" name="category" class="form-control">
+            <label for="category_id">ประเภทข่าว :</label>
+            <select id="category_id" name="category_id" class="form-control">
                 <option value="0">เลือกประเภทข่าว</option>
                 @foreach($category_news as $value)
                     <option value="{{ $value->id }}">{{ $value->category }}</option>
