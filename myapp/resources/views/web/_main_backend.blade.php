@@ -15,7 +15,7 @@
     <meta name="description" content="วิถีชีวิตไทยพุทธ พุทธมามกะ ฆราวาส พิธีกรรม วันสำคัญทางศาสนา หลักคำสอน การปฏิบัติ">
 
 
-    <title>@yield('page-title') - ระบบหลังบ้านวิถีชีวิตไทยพุทธ  </title>
+    <title>@yield('page-title') :: ระบบหลังบ้านวิถีชีวิตไทยพุทธ  </title>
 
     <link rel="icon shortcut" href="{{ asset('img/logo/favicon.ico') }}">
 
@@ -25,6 +25,10 @@
 
     @yield('stylesheet')
 
+
+    <script type="text/javascript" src="{{ asset('lib/js/jquery-1.11.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('_assets/bootstrap-3.3.5/js/bootstrap.min.js') }}"></script>
+    @yield('script')
 </head>
 <body class="wrapper">
 <!--    header  -->
@@ -131,9 +135,7 @@
 <!--  end footer  -->
 
 
-<script type="text/javascript" src="{{ asset('lib/js/jquery-1.11.3.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('_assets/bootstrap-3.3.5/js/bootstrap.min.js') }}"></script>
-@yield('script')
+
 
 </body>
 </html>

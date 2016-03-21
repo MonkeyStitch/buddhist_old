@@ -4,20 +4,48 @@
 
 @section('content')
     <div class="container">
-        <div class="panel panel-primary">
-            <div class="panel-heading">Panel Heading</div>
-            <div class="panel-body">
-                Panel Content
-
-
-
-                <ul class="pager">
-                    <li class="previous"><a href="#">Previous</a></li>
-                    <li><a href="#">1</a></li>
-                    <li class="next"><a href="#">Next</a></li>
-                </ul>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Panel Heading</div>
+                    <div class="panel-body">Panel Content</div>
+                    <div class="panel-footer">Panel Footer</div>
+                </div>
             </div>
-            {{--<div class="panel-footer"></div>--}}
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Panel Heading</div>
+                    <div class="panel-body">Panel Content</div>
+                    <div class="panel-footer">Panel Footer</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Panel Heading</div>
+                    <div class="panel-body">Panel Content</div>
+                    <div class="panel-footer">Panel Footer</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Panel Heading</div>
+                    <div class="panel-body">Panel Content</div>
+                    <div class="panel-footer">Panel Footer</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Panel Heading</div>
+                    <div class="panel-body">Panel Content</div>
+                    <div class="panel-footer">Panel Footer</div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

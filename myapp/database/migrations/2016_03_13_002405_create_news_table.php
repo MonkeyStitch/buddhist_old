@@ -17,11 +17,12 @@ class CreateNewsTable extends Migration {
 			$table->increments('id');
 			$table->integer('category_id')->unsigned();
 			$table->foreign('category_id')->references('id')->on('category_news');
+			$table->date('date');
 			$table->string('title', 1023);
 			$table->longText('details');
 			$table->string('picture', 511);
 
-			$table->string('by', 1023);
+			$table->string('reference', 1023);
 
 			$table->timestamps();
 		});

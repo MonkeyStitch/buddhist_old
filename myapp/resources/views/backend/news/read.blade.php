@@ -3,6 +3,11 @@
 @section('page-title', 'ข่าวและกิจกรรม')
 
 @section('stylesheet')
+    <style>
+        .panel-body {
+            padding-bottom: 0;
+        }
+    </style>
 @endsection
 
 @section('script')
@@ -11,6 +16,11 @@
 
 @section('content')
     <div class="container">
+        <ul class="breadcrumb box-shadow">
+            <li><a href="{{ url('admin/home') }}">Admin</a></li>
+            <li class="active">News</li>
+        </ul>
+
         <div class="panel panel-primary show-data-table">
             <div class="panel-heading" style="font-size: 20pt"><b>{{ $heading }}</b></div>
             <div class="panel-body">
@@ -64,7 +74,7 @@
                                         <form action="{!! url('admin/news/' . $value->id) !!}" method="POST" accept-charset="utf-8">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <button class="btn btn-danger" type="submit">
+                                            <button class="btn btn-danger" type="submit" onclick="if(!confirm('คุณต้องการลบข้อมูล id {{$value->id}} หรือไม่ ?')){return false}">
                                                 <i class="glyphicon glyphicon-trash"></i>
                                             </button>
                                         </form>
@@ -76,16 +86,6 @@
 
                         </tbody>
 
-                        <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>ประเภทข่าว</th>
-                            <th>รูปภาพ</th>
-                            <th>หัวข่าว</th>
-                            <th>แหล่งที่มา</th>
-                            <th><i class="glyphicon glyphicon-cog"></i> </th>
-                        </tr>
-                        </tfoot>
                     </table>
                 </div>
 
@@ -126,12 +126,12 @@
                             <li><a href="{{ url('admin/news/page/3') }}"
                                         {{ $page == 3 ? 'class=active' : '' }}>3</a></li>
                             <li><a href="{{ url('admin/news/page/4') }}">4</a></li>
-                            <li class="disabled"><a>---</a></li>
+                            <li class="disabled"><a>&gt;&gt;</a></li>
                             <li><a href="{{ url('admin/news/page/'.ceil($records/10)) }}">{{ ceil($records/10) }}</a></li>
 
                         @elseif($page > ceil($records/10)-3  && $page <= ceil($records/10))
                             <li><a href="{{ url('admin/news/page/1') }}">1</a></li>
-                            <li  class="disabled"><a>---</a></li>
+                            <li  class="disabled"><a>&lt;&lt;</a></li>
                             <li><a href="{{ url('admin/news/page/'.(ceil($records/10)-3)) }}">
                                     {{ ceil($records/10) - 3 }}
                                 </a>
@@ -154,11 +154,11 @@
 
                         @else
                             <li><a href="{{ url('admin/news/page/1') }}">1</a></li>
-                            <li class="disabled"><a>---</a></li>
+                            <li class="disabled"><a>&lt;&lt;</a></li>
                             <li><a href="{{ url('admin/news/page/'.($page - 1)) }}">{{ $page - 1 }}</a></li>
                             <li><a href="{{ url('admin/news/page/'.($page)) }}" class="active">{{ $page }}</a></li>
                             <li><a href="{{ url('admin/news/page/'.($page + 1)) }}">{{ $page + 1 }}</a></li>
-                            <li class="disabled"><a>---</a></li>
+                            <li class="disabled"><a>&gt;&gt;</a></li>
                             <li><a href="{{ url('admin/news/page/'.(ceil($records/10))) }}">{{ ceil($records/10) }}</a></li>
                         @endif
 
