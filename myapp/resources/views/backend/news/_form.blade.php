@@ -3,44 +3,39 @@
     <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
 
         <div class="form-group">
-            <label for="title">หัวข้อข่าว :</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="หัวข้อข่าว">
+            {!! Form::label('title', 'หัวข้อข่าว :') !!}
+            {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'หัวข้อข่าว']) !!}
         </div>
 
         <div class="form-group">
-            <label for="category_id">ประเภทข่าว :</label>
-            <select id="category_id" name="category_id" class="form-control">
-                <option value="0">เลือกประเภทข่าว</option>
-                @foreach($category_news as $value)
-                    <option value="{{ $value->id }}">{{ $value->category }}</option>
-                @endforeach
-            </select>
+            {!! Form::label('category_id', 'ประเภทข่าว :') !!}
+            {!! Form::select('category_id', $category_news, null, ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group">
-            <label for="date">วัน/เวลา ของข่าว :</label>
-            <input type="date" class="form-control" id="date" name="date">
+            {!! Form::label('date', 'วัน/เวลา ของข่าว :') !!}
+            {!! Form::date('date', \Carbon\Carbon::now()->format('Y-m-d'), ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group">
-            <label for="picture">รูปภาพ :</label>
-            <input type="file" class="form-control" id="picture" name="picture">
+            {!! Form::label('picture', 'รูปภาพ :') !!}
+            {!! Form::file('picture', null) !!}
         </div>
 
         <div class="form-group">
-            <label for="details">รายละเอียด :</label>
-            <textarea class="form-control" rows="8" id="details" name="details"></textarea>
+            {!! Form::label('details', 'รายละเอียด :') !!}
+            {!! Form::textarea('details', null, ['class' => 'form-control', 'row' => 8]) !!}
             <script>
                 CKEDITOR.replace( 'details' );
             </script>
         </div>
 
         <div class="form-group">
-            <label for="reference">แหล่งที่มา :</label>
-            <input type="text" class="form-control" id="reference" name="reference" placeholder="แหล่งที่มา">
+            {!! Form::label('reference', 'แหล่งที่มา :') !!}
+            {!! Form::text('reference', null, ['class' => 'form-control', 'placeholder' => 'แหล่งที่มา']) !!}
         </div>
 
     </div>
 </div>
 
-<button type="submit" class="btn btn-default center-block">{{ $submit }}</button>
+{!! Form::submit($submit, ['class' => 'btn btn-default center-block']) !!}

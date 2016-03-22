@@ -17,25 +17,7 @@
 
     <title> - วิถีชีวิตไทยพุทธ  </title>
 
-
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/logo/apple-icon-57x57.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/logo/apple-icon-60x60.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/logo/apple-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/logo/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/logo/apple-icon-114x114.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('img/logo/apple-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('img/logo/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/logo/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/logo/apple-icon-180x180.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('img/logo/android-icon-192x192.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/logo/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('img/logo/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/logo/favicon-16x16.png') }}">
-    <link rel="icon" href="{{ asset('img/logo/favicon.ico') }}"/>
-    <link rel="manifest" href="{{ asset('img/logo/manifest.json') }}">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('img/logo/ms-icon-144x144.png') }}">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="icon shortcut" href="{{ asset('img/logo/favicon.ico') }}"/>
 
     <link rel="stylesheet" href="{{ asset('css/old/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('css/old/bootstrap-new.css') }}"/>
@@ -66,10 +48,10 @@
     <!--  end footer  -->
     <!-- </div> -->
 
-    <script type="text/javascript" src="{{ asset('lib/js/jquery-1.11.3.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('lib/js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('lib/js/owl.carousel.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('lib/js/jquery-ui-datepicker.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('library/js/jquery-1.11.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('library/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('library/js/owl.carousel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('library/js/jquery-ui-datepicker.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

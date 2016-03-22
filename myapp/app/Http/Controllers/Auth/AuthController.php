@@ -18,7 +18,9 @@ class AuthController extends Controller {
 	|
 	*/
 
-	use AuthenticatesAndRegistersUsers;
+//	use AuthenticatesAndRegistersUsers;
+
+	use AuthenticatesUser;
 
 	/**
 	 * Create a new authentication controller instance.

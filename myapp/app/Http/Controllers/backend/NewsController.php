@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
 use App\Model\News\CategoryNews;
 use App\Model\News\News;
+use Illuminate\Support\Facades\Session;
 
 class NewsController extends Controller {
 
@@ -39,9 +40,9 @@ class NewsController extends Controller {
 	 */
 	public function create()
 	{
-		$category_news = CategoryNews::all();
+		$category_news = CategoryNews::lists('category', 'id');
 		return view('backend.news.create', compact('category_news'));
-//		return 'hello';
+//		return $category_news;
 	}
 
 	/**
@@ -61,7 +62,7 @@ class NewsController extends Controller {
 
 			$pic_filename 	= $newsRequest->file('picture')->getClientOriginalName();
 			$pic_name 		= date('Ymd-His-') . $pic_filename;
-			$destination 	= base_path() . '/public' . $public_path;
+			$destination 	= base_path('../') . $public_path;
 
 			$newsRequest->file('picture')->move($destination, $pic_name);
 
@@ -100,18 +101,53 @@ class NewsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return $id . 'edit';
+        $news = News::find($id);
+        $category_news = CategoryNews::lists('category', 'id');
+
+//        return $news;
+		return view('backend.news.edit', compact('news', 'category_news'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * @param NewsRequest $request
 	 * @return Response
+	 * @throws \Symfony\Component\HttpFoundation\File\Exception\FileException
+	 * @internal param int $id
 	 */
-	public function update($id)
+	public function update($id, NewsRequest $request)
 	{
-		//
+		$news = News::find($id);
+		$path_image = base_path('..') . $news->picture;
+
+		// check image
+		if($request->hasFile('picture')){
+
+			// find file image
+			/** @var string url $path_image */
+			if(file_exists($path_image)){
+				// unlink image or delete image
+				unlink($path_image);
+			}
+
+			// directory, read name file and rename
+			$public_path = '/images/news';
+			$pic_filename 	= $request->file('picture')->getClientOriginalName();
+			$pic_name 		= date('Ymd-His-') . $pic_filename;
+			$destination 	= base_path('../') . $public_path;
+			// move or copy file image
+			$request->file('picture')->move($destination, $pic_name);
+
+			// add record picture
+			$news->picture = $public_path . '/' . $pic_name;
+		}
+		$news->save();
+
+		// session
+		Session::flash('update', 'อัพเดทข้อมูลข่าว id: '.$id.' สำเร็จ');
+
+		return redirect('admin/news');
 	}
 
 	/**
@@ -122,8 +158,23 @@ class NewsController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		News::destroy($id);
+		// find $id
+		$news = News::find($id);
+		$path_image = base_path('..') . $news->picture;
+
+		// find file image
+		if(file_exists($path_image)){
+			// unlink image or delete image
+			unlink($path_image);
+		}
+		// delete news
+		$news->delete();
+
+
+		// redirect
+        Session::flash('message', 'ลบข้อมูลข่าว id: '.$id.' สำเร็จ');
 		return redirect('admin/news');
+//		return $path_image;
 	}
 
 }

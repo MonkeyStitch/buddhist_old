@@ -39,7 +39,8 @@ Route::group([
 	Route::get('news/page/{page}', 'AdminController@news');
 
 	Route::resource('/news', 'NewsController');
-//	Route::get('news', function(){
-//		return 'test';
+
+//	Route::get('news2', function(){
+//		return base_path('..') . ' ' ;
 //	});
 });

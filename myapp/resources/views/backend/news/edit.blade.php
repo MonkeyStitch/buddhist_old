@@ -1,7 +1,7 @@
 @extends('web._main_backend')
 
 @section('page-title')
-    {{ "สร้างข่าว | ข่าวและกิจกรรม" }}
+    {{ "แก้ไข id: $news->id | ข่าวและกิจกรรม" }}
 @endsection
 
 @section('stylesheet')
@@ -21,14 +21,22 @@
 
         <div class="panel panel-primary box-shadow">
             <div class="panel-heading text-center show-news">
-                เพิ่มข้อมูลของข่าว
+                แก้ไขข้อมูลของข่าว
             </div>
             <div class="panel-body">
-
-                {!! Form::open(['url' => 'admin/news', 'files' => true]) !!}
+                {{--{!! Form::model($news, ['method' => 'PATCH', 'action' => ['backend\NewsController@update', $news->id]]) !!}--}}
+                {!! Form::model($news, ['method' => 'PATCH', 'url' => ['admin/news', $news->id]]) !!}
                     @include('backend.news._form', ['submit' => 'บันทึกข้อมูล'])
                 {!! Form::close() !!}
 
+                <br>
+
+                {!! Form::open(['method' => 'DELETE', 'url' => ['admin/news', $news->id]]) !!}
+                {!!
+                    Form::submit( 'ลบข้อมูลข่าว', ['class' => 'btn btn-danger center-block',
+                        'onclick' => "if(!confirm('คุณต้องการลบข้อมูล id {$news->id} หรือไม่ ?')){return false}"])
+                !!}
+                {!! Form::close() !!}
             </div>
         </div>
     </div>

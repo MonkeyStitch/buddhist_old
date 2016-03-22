@@ -23,7 +23,9 @@ class AdminController extends Controller {
 
 	public function news($page = 1){
 		$heading = 'ข่าวและกิจกรรม';
+
 		$records = News::all()->count();
+		$page_max = ceil($records/10);
 		$news 	 = [];
 
 		if((!is_numeric($page)) || ($page <= 0)){
@@ -32,13 +34,17 @@ class AdminController extends Controller {
 			return redirect('admin/news/' . ceil($records/10));
 		}
 
-		foreach(News::all() as $item => $value){
-			if($item >= (($page-1)*10) && $item < (($page-1)*10)+10){
+
+
+		foreach(News::all()->sortByDesc('id') as $item => $value){
+			if($item >= (($page_max - $page)*10) && $item < (($page_max - $page)*10)+10){
 				$news[] = $value;
 			}
 		}
 
+
 		return view('backend.news.read', compact('heading', 'records', 'news', 'page'));
+//		return $news;
 	}
 
 

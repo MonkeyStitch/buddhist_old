@@ -18,8 +18,21 @@
     <div class="container">
         <ul class="breadcrumb box-shadow">
             <li><a href="{{ url('admin/home') }}">Admin</a></li>
-            <li class="active">News</li>
+            @if($page == '')
+                <li><a href="{{ url('admin/news') }}">News</a></li>
+                <li class="active">{{ 'Page-' . $page }}</li>
+            @else
+                <li class="active">News</li>
+            @endif
         </ul>
+
+        @if (Session::has('message'))
+            <div class="alert alert-danger">{{ Session::get('message') }}</div>
+        @endif
+
+        @if (Session::has('update'))
+            <div class="alert alert-success">{{ Session::get('update') }}</div>
+        @endif
 
         <div class="panel panel-primary show-data-table">
             <div class="panel-heading" style="font-size: 20pt"><b>{{ $heading }}</b></div>
@@ -42,8 +55,8 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>ประเภทข่าว</th>
                             <th>รูปภาพ</th>
+                            <th>ประเภทข่าว</th>
                             <th>หัวข่าว</th>
                             <th>แหล่งที่มา</th>
                             <th><i class="glyphicon glyphicon-cog"></i> </th>

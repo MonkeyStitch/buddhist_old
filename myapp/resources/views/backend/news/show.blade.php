@@ -38,7 +38,15 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="{{ asset('img/no_image.jpg') }}" class="center-block img-responsive" alt="no-image">
+                        @if($news->picture === '' || $news->picture === 'picture')
+                            <img src="{{ asset('img/no_image.jpg') }}" alt="No Image"
+                                 class="img-responsive img-thumbnail center-block"
+                                 style="height: 260px">
+                        @else
+                            <img src="{{ asset($news->picture) }}" alt="picture news"
+                                 class="img-responsive center-block"
+                                 style="height: 260px">
+                        @endif
                     </div>
                     <div class="col-md-6">
                         <table border="0" width="100%" class="table-news">
@@ -70,11 +78,11 @@
                     </div>
                 </div>
 
+                <br>
+
                 <div class="row">
                     <div class="col-md-offset-1 col-md-10">
-                        <p style="text-indent: 80px">
-                            {{ $news->details }}
-                        </p>
+                        {!! $news->details !!}
                     </div>
                 </div>
 
@@ -83,13 +91,13 @@
                         <h3 class="text-center">รูปภาพประกอบ</h3>
 
                         <div class="col-md-4">
-                            <img src="{{ asset('img/no_image.jpg') }}" class="center-block img-responsive" alt="no-image">
+                            <img src="{{ asset('img/no_image.jpg') }}" class="center-block img-thumbnail img-responsive" alt="no-image">
                         </div>
                         <div class="col-md-4">
-                            <img src="{{ asset('img/no_image.jpg') }}" class="center-block img-responsive" alt="no-image">
+                            <img src="{{ asset('img/no_image.jpg') }}" class="center-block img-thumbnail img-responsive" alt="no-image">
                         </div>
                         <div class="col-md-4">
-                            <img src="{{ asset('img/no_image.jpg') }}" class="center-block img-responsive" alt="no-image">
+                            <img src="{{ asset('img/no_image.jpg') }}" class="center-block img-thumbnail img-responsive" alt="no-image">
                         </div>
                     </div>
                 </div>
