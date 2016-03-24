@@ -18,7 +18,7 @@
     <div class="container">
         <ul class="breadcrumb box-shadow">
             <li><a href="{{ url('admin/home') }}">Admin</a></li>
-            @if($page == '')
+            @if($breadcrumb)
                 <li><a href="{{ url('admin/news') }}">News</a></li>
                 <li class="active">{{ 'Page-' . $page }}</li>
             @else

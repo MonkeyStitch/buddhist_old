@@ -19,6 +19,7 @@ class NewsController extends Controller {
 	public function index()
 	{
 		$page = 1;
+		$breadcrumb = false;
 		$heading = 'ข่าวและกิจกรรม';
 		$records = News::all()->count();
 		$news 	 = [];
@@ -27,7 +28,7 @@ class NewsController extends Controller {
 		foreach(News::all()->sortByDesc('id')->take(10) as $item => $value){
 			$news[] = $value;
 		}
-		return view('backend.news.read', compact('heading', 'records', 'news', 'page'));
+		return view('backend.news.read', compact('heading', 'records', 'news', 'page', 'breadcrumb'));
 
 //		return view('backend.news.read')->with('heading', $heading);
 //		return view('errors.503');
