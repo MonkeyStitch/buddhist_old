@@ -16,16 +16,6 @@
 
 @section('content')
     <div class="container">
-        <ul class="breadcrumb box-shadow">
-            <li><a href="{{ url('admin/home') }}">Admin</a></li>
-            @if($breadcrumb)
-                <li><a href="{{ url('admin/news') }}">News</a></li>
-                <li class="active">{{ 'Page-' . $page }}</li>
-            @else
-                <li class="active">News</li>
-            @endif
-        </ul>
-
         @if (Session::has('message'))
             <div class="alert alert-danger">{{ Session::get('message') }}</div>
         @endif
@@ -34,8 +24,18 @@
             <div class="alert alert-success">{{ Session::get('update') }}</div>
         @endif
 
-        <div class="panel panel-primary show-data-table">
-            <div class="panel-heading" style="font-size: 20pt"><b>{{ $heading }}</b></div>
+        <div class="panel panel-default show-data-table">
+            <div class="panel-heading">
+                <ul class="breadcrumb show-news">
+                    <li><a href="{{ url('admin/home') }}">หน้าแรก</a></li>
+                    @if($breadcrumb)
+                        <li><a href="{{ url('admin/news') }}">ข่าวและกิจกรรม</a></li>
+                        <li class="active">{{ 'Page-' . $page }}</li>
+                    @else
+                        <li class="active">{{ $heading }}</li>
+                    @endif
+                </ul>
+            </div>
             <div class="panel-body">
 
                 <div class="row">

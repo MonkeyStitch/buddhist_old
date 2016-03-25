@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/jeremeamia/SuperClosure/src" isTestSource="false" packagePrefix="SuperClosure" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/monolog/monolog/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/monolog/monolog/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/phpspec/prophecy/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/nikic/php-parser/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/nikic/php-parser/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/jakub-onderka/php-console-color/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/jakub-onderka/php-console-highlighter/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/symfony/debug" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/symfony/finder" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/symfony/var-dumper" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/symfony/http-foundation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/symfony/http-kernel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/symfony/security-core" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/symfony/routing" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/symfony/console" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/symfony/process" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/symfony/translation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/doctrine/inflector/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/doctrine/inflector/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/doctrine/instantiator/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/phpspec/phpspec" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/phpspec/prophecy" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/phpdocumentor/reflection-docblock/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/phpdocumentor/reflection-docblock/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/phpspec/phpspec/features/bootstrap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/mtdowling/cron-expression/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/psr/log" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/doctrine/instantiator/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/laravel/framework/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/phpspec/phpspec/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/nesbot/carbon/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/psy/psysh/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/psy/psysh/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/myapp/vendor/classpreloader/classpreloader/src" isTestSource="false" packagePrefix="ClassPreloader" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

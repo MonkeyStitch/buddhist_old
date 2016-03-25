@@ -21,30 +21,6 @@ class AdminController extends Controller {
 //		return view('backend.read_main');
 	}
 
-	public function news($page = 1){
-		$heading = 'ข่าวและกิจกรรม';
-
-		$records = News::all()->count();
-		$breadcrumb = true;
-		$page_max = ceil($records/10);
-		$news 	 = [];
-
-		if((!is_numeric($page)) || ($page <= 0)){
-			return redirect('admin/news/1');
-		} else if($page > ceil($records/10)) {
-			return redirect('admin/news/' . ceil($records/10));
-		}
-
-		foreach(News::all()->sortByDesc('id') as $item => $value){
-			if($item >= (($page_max - $page)*10) && $item < (($page_max - $page)*10)+10){
-				$news[] = $value;
-			}
-		}
-
-
-		return view('backend.news.read', compact('heading', 'records', 'news', 'page', 'breadcrumb'));
-//		return $news;
-	}
-
+	
 
 }

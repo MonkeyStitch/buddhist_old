@@ -18,15 +18,6 @@
 Route::controllers([
 	'system' => 'Auth\AuthController',
 ]);
-
-
-// frontend
-Route::get('/', 'FrontendController@index');
-Route::group(['namespace' => 'frontend'], function(){
-
-});
-
-
 // backend
 Route::group([
 	'prefix' => 'admin',
@@ -36,11 +27,31 @@ Route::group([
 
 	Route::get('/', 'AdminController@index');
 	Route::get('/home', 'AdminController@home');
-	Route::get('news/page/{page}', 'AdminController@news');
 
+	// page news ข่าวและกิจกรรม
+	Route::get('news/page/{page}', 'NewsController@pageNews');
 	Route::resource('/news', 'NewsController');
 
-//	Route::get('news2', function(){
-//		return base_path('..') . ' ' ;
+	// page doctrines หลักธรรมคำสอน
+	Route::group(['namespace' => 'doctrines'], function(){
+		Route::resource('doctrines', 'DoctrinesController');
+		Route::resource('authors', 'AuthorsController');
+		Route::resource('keyword', 'DoctrinesKeywordController');
+	});
+
+
+//	Route::get('/', function(){
+//		return 'Hello World';
 //	});
+});
+
+
+
+
+
+
+// frontend
+Route::get('/', 'FrontendController@index');
+Route::group(['namespace' => 'frontend'], function(){
+
 });

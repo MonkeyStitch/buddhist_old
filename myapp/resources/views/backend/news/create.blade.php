@@ -13,15 +13,15 @@
 
 @section('content')
     <div class="container">
-        <ul class="breadcrumb box-shadow">
-            <li><a href="{{ url('admin/home') }}">Admin</a></li>
-            <li><a href="javascript:window.history.back()">News</a></li>
-            <li class="active">Create</li>
-        </ul>
 
-        <div class="panel panel-primary box-shadow">
-            <div class="panel-heading text-center show-news">
-                เพิ่มข้อมูลของข่าว
+
+        <div class="panel panel-default box-shadow">
+            <div class="panel-heading">
+                <ul class="breadcrumb show-news">
+                    <li><a href="{{ url('admin/home') }}">หน้าแรก</a></li>
+                    <li><a href="javascript:window.history.back()">ข่าวและกิจกรรม</a></li>
+                    <li class="active">เพิ่มข้อมูลของข่าว</li>
+                </ul>
             </div>
             <div class="panel-body">
 

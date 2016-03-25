@@ -74,9 +74,9 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">หลักธรรมคำสอน
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ url('') }}">พระพุทธเจ้า</a></li>
-                                <li><a href="{{ url('') }}">พระเกจิอาจารย์</a></li>
-                                <li><a href="{{ url('') }}">พระมหากษัตริย์</a></li>
+                                <li><a href="{{ url('admin/doctrines') }}">หลักธรรม</a></li>
+                                <li><a href="{{ url('admin/authors') }}">ผู้ให้คำสอน</a></li>
+                                <li><a href="javascript:void(1)">keyword</a></li>
                             </ul>
                         </li>
 
