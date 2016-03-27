@@ -247,7 +247,15 @@ img.delete {
 
 
 
-
+.content-block {
+    text-indent: 40px;
+    max-height: 135px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* overflow-x: hidden; */
+    /* overflow-y: hidden; */
+}
 
 /* news */
 .show-news {

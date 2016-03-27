@@ -39,15 +39,22 @@
             <div class="panel-body">
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-xs-12">
                         <a href="{{ url('admin/news/create') }}" class="btn btn-green">add news</a>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group col-md-8 col-md-offset-2">
-                            <input type="text" class="form-control" id="search" placeholder="Search">
-                        </div>
-                        <input type="button" class="btn btn-green col-md-2" value="Search"/>
+                    <br class="hidden-md hidden-lg">
+                    <br class="hidden-md hidden-lg">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group col-md-6 col-md-offset-6">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-warning" type="button">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </span>
+                        </div><!-- /input-group -->
                     </div>
+                    <hr>
                 </div>
 
                 <div class="table-responsive">

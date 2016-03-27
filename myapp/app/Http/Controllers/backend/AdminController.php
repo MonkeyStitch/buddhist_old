@@ -17,8 +17,16 @@ class AdminController extends Controller {
 	}
 
 	public function home() {
-		return view('backend.home');
-//		return view('backend.read_main');
+//		all()->chunk(10); แบ่งข้อมูลเป็นช่วงตามที่กำหนด เช่น 10
+//		all()->contains(1) ตรวจสอบข้อมูลว่ามีหรือไม่ ถ้ามี return true ถ้าไม่มี return false
+//		all()->where('category_id', 3)->sortByDesc('id')->take(1)
+
+		$news = News::all()->sortByDesc('id')->take(2);
+
+//dd($news1);
+
+		return view('backend.home', compact('news'));
+//		return $news3;
 	}
 
 	
