@@ -22,7 +22,10 @@
         <div class="panel panel-default show-data-table">
             <div class="panel-heading">
                 <ul class="breadcrumb show-news">
-                    <li><a href="{{ url('admin/home') }}">หน้าแรก</a></li>
+                    <li>
+                        <i class="glyphicon glyphicon-home"></i>
+                        <a href="{{ url('admin/home') }}">หน้าแรก</a>
+                    </li>
                     <li><a href="{{ url('admin/doctrines') }}">หลักธรรมคำสอน</a></li>
                     @if($breadcrumb)
                         <li><a href="{{ url('admin/authors') }}">ผู้ให้โอวาสหลักธรรมคำสอน</a></li>
@@ -36,22 +39,31 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="{{ url('admin/authors/create') }}" class="btn btn-green">เพิ่มผู้ให้โอวาส</a>
+                        <a href="{{ url('admin/authors/create') }}" class="btn btn-green">
+                            <i class="glyphicon glyphicon-plus"></i> เพิ่มผู้ให้โอวาส
+                        </a>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group col-md-8 col-md-offset-2">
-                            <input type="text" class="form-control" id="search" placeholder="Search">
-                        </div>
-                        <input type="button" class="btn btn-green col-md-2" value="ค้นหา"/>
+                    <br class="hidden-md hidden-lg">
+                    <br class="hidden-md hidden-lg">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group col-md-6 col-md-offset-6">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-warning" type="button">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </span>
+                        </div><!-- /input-group -->
                     </div>
+                    <hr>
                 </div>
 
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>รูปภาพ</th>
+                            <th width="70px">ID</th>
+                            <th width="120px">รูปภาพ</th>
                             <th>นามหรือฉายา</th>
                             <th>ชื่อ</th>
                             <th><i class="glyphicon glyphicon-cog"></i> </th>
@@ -59,7 +71,7 @@
                         </thead>
 
                         <tbody>
-                        @if(false)
+                        @if($count === 0)
                             <tr>
                                 <th colspan="5">ไม่พบผลลัพธ์</th>
                             </tr>

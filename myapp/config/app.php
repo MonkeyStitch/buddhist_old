@@ -141,6 +141,7 @@ return [
 		 * read file composer.json directory is package
 		 */
 		'Collective\Html\HtmlServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -202,6 +203,8 @@ return [
 		// aliases class from HTML & Form
 		'Form'		=> 'Collective\Html\FormFacade',
 		'HTML'		=> 'Collective\Html\HtmlFacade',
+
+		'Image' 	=> 'Intervention\Image\Facades\Image',
 
 	],
 

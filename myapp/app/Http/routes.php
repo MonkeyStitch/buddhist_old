@@ -12,12 +12,11 @@
 */
 
 
-
-
-
 Route::controllers([
 	'system' => 'Auth\AuthController',
 ]);
+
+
 // backend
 Route::group([
 	'prefix' => 'admin',
@@ -39,15 +38,19 @@ Route::group([
 		Route::resource('keyword', 'DoctrinesKeywordController');
 	});
 
-
-//	Route::get('/', function(){
-//		return 'Hello World';
-//	});
 });
 
 
+// usage inside a laravel route
+Route::get('/image', function() {
+	abort(404, 'page not found');
+//	$img = Image::make('images/news/20160321-210120-icon.png');
+//	$img->resize(300, 300);
+//	return $img->response();
+});
 
-
+// route image
+Route::controller('/p', 'ImagesController');
 
 
 // frontend

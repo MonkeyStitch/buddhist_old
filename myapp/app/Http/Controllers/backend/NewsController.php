@@ -100,7 +100,7 @@ class NewsController extends Controller {
 
 		}
 
-//		dd($newsRequest->all());
+		dd($newsRequest->all());
 		return redirect('admin/news');
 	}
 

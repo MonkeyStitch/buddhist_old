@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\Doctrines\AuthorsRequest;
+use App\Model\Doctrines\Authors;
 use Illuminate\Http\Request;
 
 class AuthorsController extends Controller {
@@ -15,9 +17,10 @@ class AuthorsController extends Controller {
 	public function index()
 	{
 		$heading = 'ผู้ให้โอวาสหลักธรรมคำสอน';
-
-		$breadcrumb = false;
-		return view('backend.doctrines.authors.index', compact('heading', 'breadcrumb'));
+		$breadcrumb = false; //
+		$authors = Authors::all();
+		$count = Authors::all()->count();
+		return view('backend.doctrines.authors.index', compact('heading', 'breadcrumb', 'authors', 'count'));
 	}
 
 	/**
@@ -33,11 +36,29 @@ class AuthorsController extends Controller {
 	/**
 	 * Store a newly created resource in storage.
 	 *
+	 * @param Request $request
 	 * @return Response
 	 */
-	public function store()
+	public function store(AuthorsRequest $request)
 	{
-		return 'Hello World!!!';
+		$input = new Authors($request->all());
+
+		if($request->hasFile('picture')){
+			$public_path = '/images/doctrines';
+
+			$pic_filename 	= $request->file('picture')->getClientOriginalName();
+			$pic_name 		= date('Ymd-His-') . $pic_filename;
+			$destination 	= base_path('../') . $public_path;
+
+			$request->file('picture')->move($destination, $pic_name);
+
+			// add record picture
+			$input['picture'] = $public_path . '/' . $pic_name;
+			$input->save();
+
+		}
+
+		return redirect('admin/doctrines');
 	}
 
 	/**

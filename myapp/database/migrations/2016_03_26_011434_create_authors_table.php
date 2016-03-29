@@ -14,11 +14,11 @@ class CreateAuthorsTable extends Migration {
 	{
 		Schema::create('authors', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unsigned();
 			$table->string('general_name');
 			$table->string('first_name');
 			$table->string('picture');
-			$table->string('other');
+			$table->text('note');
 			$table->timestamps();
 		});
 	}

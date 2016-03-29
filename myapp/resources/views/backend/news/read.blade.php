@@ -27,7 +27,10 @@
         <div class="panel panel-default show-data-table">
             <div class="panel-heading">
                 <ul class="breadcrumb show-news">
-                    <li><a href="{{ url('admin/home') }}">หน้าแรก</a></li>
+                    <li>
+                        <i class="glyphicon glyphicon-home"></i>
+                        <a href="{{ url('admin/home') }}">หน้าแรก</a>
+                    </li>
                     @if($breadcrumb)
                         <li><a href="{{ url('admin/news') }}">ข่าวและกิจกรรม</a></li>
                         <li class="active">{{ 'Page-' . $page }}</li>
@@ -40,7 +43,10 @@
 
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
-                        <a href="{{ url('admin/news/create') }}" class="btn btn-green">add news</a>
+                        <a href="{{ url('admin/news/create') }}" class="btn btn-green">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            เพิ่มข่าว
+                        </a>
                     </div>
                     <br class="hidden-md hidden-lg">
                     <br class="hidden-md hidden-lg">
@@ -61,9 +67,9 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>รูปภาพ</th>
-                            <th>ประเภทข่าว</th>
+                            <th width="70px">ID <i class="glyphicon glyphicon-sort-by-attributes-alt"></i></th>
+                            <th width="120px">รูปภาพ</th>
+                            <th width="200px">ประเภทข่าว</th>
                             <th>หัวข่าว</th>
                             <th>แหล่งที่มา</th>
                             <th><i class="glyphicon glyphicon-cog"></i> </th>
@@ -71,19 +77,23 @@
                         </thead>
 
                         <tbody>
-                        @if(count($records) === 0)
+                        @if($records === 0)
                             <tr>
-                                <th colspan="5">ไม่พบผลลัพธ์</th>
+                                <th colspan="6">ไม่พบผลลัพธ์</th>
                             </tr>
                         @else
                             @foreach($news as $value)
                                 <tr>
                                     <td>{{ $value->id }}</td>
-                                    <td width="120px">
+                                    <td>
                                         @if($value->picture === '' || $value->picture === 'picture')
-                                            <img src="{{ asset('img/no_image.jpg') }}" alt="No Image" class="img-responsive img-thumbnail center-block">
+                                            <img src="{{ url('p/not-image/103') }}" alt="No Image" class="img-responsive img-thumbnail center-block">
                                         @else
-                                            <img src="{{ asset($value->picture) }}" alt="picture news" class="img-responsive img-thumbnail center-block">
+                                            <?php
+                                                $img = substr($value->picture, 7, strlen($value->picture));
+                                                $img = 'p/itbdlst' . $img;
+                                            ?>
+                                            <img src="{{ url($img) }}" alt="picture news" class="img-responsive img-thumbnail center-block">
                                         @endif
                                     </td>
                                     <td>{{ $value->category->category }}</td>
@@ -119,7 +129,9 @@
 
                 <ul class="pager">
                     <li class="previous {{ $page == 1 ? 'disabled': '' }}">
-                        <a {{ $page == 1 ? '': 'href='.url('admin/news/page/'.($page-1)) }}>Previous</a>
+                        <a {{ $page == 1 ? '': 'href='.url('admin/news/page/'.($page-1)) }}>
+                            <i class="glyphicon glyphicon-chevron-left"></i>ก่อนหน้านี้
+                        </a>
                     </li>
 
                     @if($records <= 50)
@@ -152,12 +164,16 @@
                             <li><a href="{{ url('admin/news/page/3') }}"
                                         {{ $page == 3 ? 'class=active' : '' }}>3</a></li>
                             <li><a href="{{ url('admin/news/page/4') }}">4</a></li>
-                            <li class="disabled"><a>&gt;&gt;</a></li>
+                            <li class="disabled">
+                                <a><i class="glyphicon glyphicon-forward"></i></a>
+                            </li>
                             <li><a href="{{ url('admin/news/page/'.ceil($records/10)) }}">{{ ceil($records/10) }}</a></li>
 
                         @elseif($page > ceil($records/10)-3  && $page <= ceil($records/10))
                             <li><a href="{{ url('admin/news/page/1') }}">1</a></li>
-                            <li  class="disabled"><a>&lt;&lt;</a></li>
+                            <li  class="disabled">
+                                <a><i class="glyphicon glyphicon-backward"></i></a>
+                            </li>
                             <li><a href="{{ url('admin/news/page/'.(ceil($records/10)-3)) }}">
                                     {{ ceil($records/10) - 3 }}
                                 </a>
@@ -180,18 +196,24 @@
 
                         @else
                             <li><a href="{{ url('admin/news/page/1') }}">1</a></li>
-                            <li class="disabled"><a>&lt;&lt;</a></li>
+                            <li class="disabled">
+                                <a><i class="glyphicon glyphicon-backward"></i></a>
+                            </li>
                             <li><a href="{{ url('admin/news/page/'.($page - 1)) }}">{{ $page - 1 }}</a></li>
                             <li><a href="{{ url('admin/news/page/'.($page)) }}" class="active">{{ $page }}</a></li>
                             <li><a href="{{ url('admin/news/page/'.($page + 1)) }}">{{ $page + 1 }}</a></li>
-                            <li class="disabled"><a>&gt;&gt;</a></li>
+                            <li class="disabled">
+                                <a><i class="glyphicon glyphicon-forward"></i></a>
+                            </li>
                             <li><a href="{{ url('admin/news/page/'.(ceil($records/10))) }}">{{ ceil($records/10) }}</a></li>
                         @endif
 
                     @endif
 
                     <li class="next {{ $page == ceil($records/10) ? 'disabled': '' }}">
-                        <a {{ $page == ceil($records/10) ? '': 'href='.url('admin/news/page/'.($page+1)) }}>Next</a>
+                        <a {{ $page == ceil($records/10) ? '': 'href='.url('admin/news/page/'.($page+1)) }}>
+                            หน้าถัดไป<i class="glyphicon glyphicon-chevron-right"></i>
+                        </a>
                     </li>
                 </ul>
             </div>

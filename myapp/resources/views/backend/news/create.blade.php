@@ -18,7 +18,10 @@
         <div class="panel panel-default box-shadow">
             <div class="panel-heading">
                 <ul class="breadcrumb show-news">
-                    <li><a href="{{ url('admin/home') }}">หน้าแรก</a></li>
+                    <li>
+                        <i class="glyphicon glyphicon-home"></i>
+                        <a href="{{ url('admin/home') }}">หน้าแรก</a>
+                    </li>
                     <li><a href="javascript:window.history.back()">ข่าวและกิจกรรม</a></li>
                     <li class="active">เพิ่มข้อมูลของข่าว</li>
                 </ul>
