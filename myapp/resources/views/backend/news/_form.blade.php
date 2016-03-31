@@ -25,9 +25,6 @@
         <div class="form-group">
             {!! Form::label('details', 'รายละเอียด :') !!}
             {!! Form::textarea('details', null, ['class' => 'form-control', 'row' => 8]) !!}
-            <script>
-                CKEDITOR.replace( 'details' );
-            </script>
         </div>
 
         <div class="form-group">

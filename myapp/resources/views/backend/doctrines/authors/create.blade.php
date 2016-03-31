@@ -7,6 +7,9 @@
 
 @section('script')
     <script type="text/javascript" src="{{ asset('_assets/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace('note');
+    </script>
 @endsection
 
 

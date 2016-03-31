@@ -16,8 +16,10 @@
 
 @section('content')
     <div class="container">
-        @if (Session::has('message'))
-            <div class="alert alert-danger">{{ Session::get('message') }}</div>
+        @if (Session::has('delete'))
+            <script>
+                $.smkAlert({text: '{{ Session::get('delete') }}', type:'success'});
+            </script>
         @endif
 
         @if (Session::has('update'))
@@ -107,10 +109,11 @@
                                             <i class="glyphicon glyphicon-pencil"></i>
                                         </a>
 
+                                        {{--<form action="" method="POST" accept-charset="utf-8">--}}
                                         <form action="{!! url('admin/news/' . $value->id) !!}" method="POST" accept-charset="utf-8">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <button class="btn btn-danger" type="submit" onclick="if(!confirm('คุณต้องการลบข้อมูล id {{$value->id}} หรือไม่ ?')){return false}">
+                                            <button class="btn btn-danger btnConfirmDelete" type="submit">
                                                 <i class="glyphicon glyphicon-trash"></i>
                                             </button>
                                         </form>

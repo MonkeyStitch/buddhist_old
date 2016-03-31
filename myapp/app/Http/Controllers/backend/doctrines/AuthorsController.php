@@ -58,7 +58,7 @@ class AuthorsController extends Controller {
 
 		}
 
-		return redirect('admin/doctrines');
+		return redirect('admin/authors');
 	}
 
 	/**
@@ -69,7 +69,8 @@ class AuthorsController extends Controller {
 	 */
 	public function show($id)
 	{
-		return view('backend.doctrines.authors.show');
+		$authors = Authors::all()->find($id);
+		return view('backend.doctrines.authors.show', compact('authors'));
 	}
 
 	/**
@@ -80,7 +81,8 @@ class AuthorsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return view('backend.doctrines.authors.edit');
+		$authors = Authors::all()->find($id);
+		return view('backend.doctrines.authors.edit', compact('authors'));
 	}
 
 	/**

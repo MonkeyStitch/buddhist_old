@@ -9,24 +9,24 @@
 
 @section('script')
     <script type="text/javascript" src="{{ asset('_assets/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'details' );
+    </script>
 @endsection
 
 @section('content')
     <div class="container">
 
         <div class="panel panel-default box-shadow ">
-            <div class="panel-heading">
+            <div class="panel-heading" style="position: relative;">
                 <ul class="breadcrumb show-news" style="display: inline-block;">
                     <li><a href="{{ url('admin/home') }}">หน้าแรก</a></li>
-                    <li><a href="javascript:window.history.back()">ข่าวและกิจกรรม</a></li>
+                    <li><a href="{{ url('admin/news') }}">ข่าวและกิจกรรม</a></li>
                     <li class="active">แก้ไขข้อมูลของข่าว</li>
                 </ul>
 
-                {!! Form::open(['method' => 'DELETE', 'url' => ['admin/news', $news->id], 'style' => 'float:right']) !!}
-                {!!
-                    Form::submit( 'ลบข้อมูลข่าว', ['class' => 'btn btn-danger center-block',
-                        'onclick' => "if(!confirm('คุณต้องการลบข้อมูล id {$news->id} หรือไม่ ?')){return false}"])
-                !!}
+                {!! Form::open(['method' => 'DELETE', 'url' => ['admin/news', $news->id], 'class' => 'form-delete-right']) !!}
+                {!! Form::submit( 'ลบข้อมูลข่าว', ['class' => 'btn btn-danger center-block btnConfirmDelete']) !!}
                 {!! Form::close() !!}
 
             </div>

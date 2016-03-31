@@ -5,25 +5,38 @@
 @section('content')
     <div class="container">
         <div class="row">
+
             <div class="col-md-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading"><h4>ข่าวและกิจกรรม</h4></div>
-                    <div class="panel-body">
-                        @foreach( $news as $new)
-                            <div class="col-md-6">
-                                <h4 class="text-center">{{ $new->category->category }}</h4>
-                                <img src="{{ asset($new->picture) }}" alt="{{ $new->category->category }}"
-                                     class="img-responsive img-thumbnail center-block"
-                                     style="height: 250px">
-                                <h4>{!! $new->title !!}</h4>
-                                <div class="content-block">
-                                    {!! $new->details !!}
-                                </div>
-                            </div>
-                        @endforeach
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <ul class="breadcrumb show-news">
+                            <li class="active">
+                                <i class="glyphicon glyphicon-home"></i>
+                                <a href="{{ url('admin/home') }}">หน้าแรก</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
+
+            @foreach( $news as $new)
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><h4>{{ $new->category->category }}</h4></div>
+                        <div class="panel-body">
+
+                            <img src="{{ asset($new->picture) }}" alt="{{ $new->category->category }}"
+                                 class="img-responsive img-thumbnail center-block"
+                                 style="height: 250px">
+                            <h4>{!! $new->title !!}</h4>
+                            <div class="content-block">
+                                {!! $new->details !!}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
 
         <div class="row">

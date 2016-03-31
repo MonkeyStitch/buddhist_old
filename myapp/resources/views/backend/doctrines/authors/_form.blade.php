@@ -41,9 +41,6 @@
         <div class="form-group">
             {!! Form::label('note', 'หมายเหตุ :', ['class' => 'control-label']) !!}
             {!! Form::textarea('note', null, ['class' => 'form-control', 'row' => 8]) !!}
-            <script>
-                CKEDITOR.replace('note');
-            </script>
         </div>
 
         <div class="form-group text-center">

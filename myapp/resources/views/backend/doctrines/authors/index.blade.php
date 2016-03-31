@@ -76,29 +76,37 @@
                                 <th colspan="5">ไม่พบผลลัพธ์</th>
                             </tr>
                         @else
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td style="vertical-align: middle;">
-                                    <a href="{{ url('admin/news/' . 1) }}" class="btn btn-default">
-                                        <i class="glyphicon glyphicon-eye-open"></i>
-                                    </a>
-                                    <a href="{{ url('admin/news/' . 1 . '/edit') }}" class="btn btn-info">
-                                        <i class="glyphicon glyphicon-pencil"></i>
-                                    </a>
+                            @foreach($authors as $author)
+                                <tr>
+                                    <td>{{ $author->id }}</td>
+                                    <td>
+                                        <?php
+                                            $img = substr($author->picture, 7, strlen($author->picture));
+                                            $img = 'p/itbdlst' . $img;
+                                        ?>
+                                        <img src="{{ url($img) }}" alt="picture news" class="img-responsive img-thumbnail center-block">
+                                    </td>
+                                    <td>{{ $author->general_name }}</td>
+                                    <td>{{ $author->first_name }}</td>
+                                    <td style="vertical-align: middle;">
+                                        <a href="{{ url('admin/authors/' . $author->id) }}" class="btn btn-default">
+                                            <i class="glyphicon glyphicon-eye-open"></i>
+                                        </a>
+                                        <a href="{{ url('admin/authors/' . $author->id . '/edit') }}" class="btn btn-info">
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                        </a>
 
-                                    <form action="{!! url('admin/news/' . 1) !!}" method="POST" accept-charset="utf-8">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <button class="btn btn-danger" type="submit" onclick="if(!confirm('คุณต้องการลบข้อมูล id {{1}} หรือไม่ ?')){return false}">
-                                            <i class="glyphicon glyphicon-trash"></i>
-                                        </button>
-                                    </form>
+                                        <form action="{!! url('admin/authors/' . $author->id) !!}" method="POST" accept-charset="utf-8">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <button class="btn btn-danger btnConfirmDelete" type="submit">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </button>
+                                        </form>
 
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            @endforeach
                         @endif
 
                         </tbody>

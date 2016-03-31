@@ -200,7 +200,7 @@ class NewsController extends Controller {
 
 
 		// redirect
-        Session::flash('message', 'ลบข้อมูลข่าว id: '.$id.' สำเร็จ');
+        Session::flash('delete', 'ลบข้อมูลข่าว id: '.$id.' สำเร็จ');
 		return redirect('admin/news');
 //		return $path_image;
 	}

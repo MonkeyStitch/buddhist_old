@@ -20,15 +20,12 @@
     <link rel="icon shortcut" href="{{ asset('img/logo/favicon.ico') }}">
 
     <link rel="stylesheet" href="{{ asset('_assets/bootstrap-3.3.5/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('_assets/smoke-v3.1.1/css/smoke.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/old/main.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/admin/backend.css') }}">
 
     @yield('stylesheet')
 
-
-    <script type="text/javascript" src="{{ asset('library/js/jquery-1.11.3.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('_assets/bootstrap-3.3.5/js/bootstrap.min.js') }}"></script>
-    @yield('script')
 </head>
 <body class="wrapper">
 <!--    header  -->
@@ -136,6 +133,12 @@
 
 
 
+    <script type="text/javascript" src="{{ asset('library/js/jquery-1.11.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('_assets/bootstrap-3.3.5/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('_assets/smoke-v3.1.1/js/smoke.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/tbdls.js') }}"></script>
+
+    @yield('script')
 
 </body>
 </html>
